@@ -1,13 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import CartBadge from './CartBadge';
 
 const Navbar = () => {
-    const count = useSelector((state) => state.counter.value)
     
   return (
-    <div>Navbar count is {count}</div>
+    <div style={{margin: '20px',}}>
+      <CartBadge />
+    </div>
   )
 }
 
 export default Navbar
-
