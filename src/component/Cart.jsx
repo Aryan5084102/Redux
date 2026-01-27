@@ -6,9 +6,9 @@ const Cart = () => {
     const cartData = useSelector((state) => state.cart.items)
     const dispatch = useDispatch()
 
-    // const handleDelete = (id) =>{
-    //     dispatch(RemoveToCart(id))
-    // }
+    const handleDelete = (id) =>{
+        dispatch(RemoveToCart(id))
+    }
 
   return (
     <div style={{ border: '1px solid #110909', padding: '15px', gap: '10px', display: 'flex', flexDirection: 'column' }}>
@@ -26,7 +26,7 @@ const Cart = () => {
                     <p>${data?.price}</p>
                 </div>
                 <div>
-                    {/* <button onClick={handleDelete(data?.id)} style={{backgroundColor: 'red' , padding: '5px', border: '1px solid white'}}>Delete</button> */}
+                    <button onClick={() => handleDelete(data?.id)} style={{backgroundColor: 'red' , padding: '5px', border: '1px solid white'}}>Delete</button>
                 </div>
             </div>
 

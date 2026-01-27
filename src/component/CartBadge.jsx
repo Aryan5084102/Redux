@@ -18,7 +18,7 @@ export default function CartBadge() {
 
   return (
     <IconButton aria-label="cart">
-      <StyledBadge badgeContent={cartCount || '0'} color="secondary">
+      <StyledBadge badgeContent={cartCount  } color="secondary">
         <ShoppingCartIcon />
       </StyledBadge>
     </IconButton>

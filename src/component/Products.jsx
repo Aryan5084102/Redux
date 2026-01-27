@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {  AddToCart } from '../redux/cart/cartSlice';
+import { CiHeart } from "react-icons/ci";
+import { AddtoWishlist } from '../redux/wishlist/wishlistSlice';
 
 const Products = () => {
 
@@ -12,7 +14,7 @@ const Products = () => {
         try{
             const data = await fetch("https://dummyjson.com/products")
             const res = await data.json();
-            setProducts(res.products.slice(0, 15))
+            setProducts(res.products)
         }catch(error){
             console.error(error, "Error")
         }
@@ -28,6 +30,10 @@ const Products = () => {
         )
     }
 
+    const handleWishlist = (data) =>{
+        dispatch(AddtoWishlist(data))
+    }
+
   return (
     <div style={{display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
         {products?.map((data) => 
@@ -41,7 +47,8 @@ const Products = () => {
                 style={{width: '100px', height: '100px'}}
             />
             <p>{data?.title}</p>
-            <button onClick={() => addToCartHandler(data)}>Add to Cart</button>
+            <button style={{marginRight: '5px'}} onClick={() => addToCartHandler(data)}>Add to Cart</button>
+            <CiHeart onClick={()=> handleWishlist(data)} style={{cursor: 'pointer', width: '20px', height: '20px', }} />
         </div>
         )}
         

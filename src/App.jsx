@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment, multiply, incrementByAmount } from './redux/counter/counterSlice';
 import Products from './component/Products';
 import Cart from './component/Cart';
+import Wishlist from './component/Wishlist';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +26,8 @@ function App() {
         
         <Products />
 
-        {/* <Cart /> */}
+        <Cart />
+        <Wishlist />
         
     </div>
   )
